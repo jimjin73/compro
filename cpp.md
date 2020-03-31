@@ -223,16 +223,8 @@ struct st{
 + [mint : mod計算の効率化](https://qiita.com/ue_sho/items/1ee5c3e665c72c035880)
 + union find
 
-## 頻出アルゴリズム
-+ 
-
-## 計算量の目安
-N=1e6程度ならO(N)が通る。1e7は怪しい。[詳細](https://cppx.hatenablog.com/entry/2017/08/06/104144)
-
-
 ## 引用
 + [C++ 日本語リファレンス](https://cpprefjp.github.io/)
 + [Qiita : 競プロ向けSTL標準ライブラリ](https://qiita.com/kawa-Kotaro/items/782bc31b64e4ee13649a)
 + [Qiita : STLの型の使い分け](https://qiita.com/h_hiro_/items/a83a8fd2391d4a3f0e1c)
-+ [計算量の話](https://cppx.hatenablog.com/entry/2017/08/06/104144)
 + [二分探索を使いこなす](https://pyteyon.hatenablog.com/entry/2019/02/20/194140)
