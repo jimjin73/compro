@@ -1,12 +1,12 @@
-# 競技プログラミング用tips
+# 競技プログラミング用tips (C++ 文法)
 
 ## Standard Template Library
 ### データ構造
 #### 配列
 初期化
 ```
-vector<int> v(10)    // 長さ10
-vector<int> v(10,5)  // 長さ10で初期値5
+vector<type> v(n)    // 長さn
+vector<type> v(n,o)  // 長さnで初期値o
 ```
 操作
 ```
@@ -46,8 +46,8 @@ q.empty() // キューが空かどうか判定する
 初期化
 ```
 list<type> l
-list<int>::iterater p
-list<int>::reverse_iterater r
+list<type>::iterater p
+list<type>::reverse_iterater r
 ```
 操作
 ```
@@ -194,7 +194,6 @@ unique関数は**隣り合った**重複要素を詰めて、戻り値として�
 v.clear()
 ```
 
-
 ## 型
 ### 数値の扱い
 #### long long
@@ -206,11 +205,34 @@ typedef long long ll;
 
 #### double
 + 値を出力する際に何桁表示するか明記したほうが良い
-**TODO:ここ書く**
-#### 構造体定義
+```
+cout << fixed << setprecision(15) << f << endl
+```
+
+### 構造体
+classと異なり、メンバ関数はデフォルトでpublic
+```
+struct st{
+    st(){};   // コンストラクタ
+    type1 t1;
+    type2 t2;
+    type3 func(){};
+};
+```
+使用例
++ [mint : mod計算の効率化](https://qiita.com/ue_sho/items/1ee5c3e665c72c035880)
++ union find
 
 ## 頻出アルゴリズム
 + 
 
 ## 計算量の目安
 N=1e6程度ならO(N)が通る。1e7は怪しい。[詳細](https://cppx.hatenablog.com/entry/2017/08/06/104144)
+
+
+## 引用
++ [C++ 日本語リファレンス](https://cpprefjp.github.io/)
++ [Qiita : 競プロ向けSTL標準ライブラリ](https://qiita.com/kawa-Kotaro/items/782bc31b64e4ee13649a)
++ [Qiita : STLの型の使い分け](https://qiita.com/h_hiro_/items/a83a8fd2391d4a3f0e1c)
++ [計算量の話](https://cppx.hatenablog.com/entry/2017/08/06/104144)
++ [二分探索を使いこなす](https://pyteyon.hatenablog.com/entry/2019/02/20/194140)
