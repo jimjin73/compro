@@ -113,6 +113,7 @@ pair<type type> p
 ```
 操作
 ```
+p = make_pair(a,b)
 p.first
 p.second
 ```
@@ -120,7 +121,7 @@ p.second
 #### 辞書 (map)
 初期化
 ```
-unorderd_map<key_type, value_type> um  // multimapはググる
+unorderd_map<key_type, value_type> um  // multimapもある
 ```
 操作
 ```
@@ -129,6 +130,7 @@ um.find(v)   //要素へのイテレーターを返す．なければm.end()を�
 um.erase(p)  //イテレーターの指す要素を削除
 unordered_map<key_type, value_type>::iterator p            //イテレーターを用いた走査
 for (p=um.begin(); p!=um.end(); p++)  p->first, p->second  // keyとvalue全列挙
+um.emplace(k,v)
 ```
 
 #### 集合 (set)
