@@ -12,6 +12,7 @@ vector<type> v(n,o)  // 長さnで初期値o
 ```
 v.push_back(n) // 配列の延長
 v1.insert(v1.begin(), v2.begin(), v2.end()) // 配列の連結
+v1 == v2 // ベクトルの中身が一致しているか確認
 ```
 
 #### 文字列
@@ -160,6 +161,7 @@ a = (a ^ b) // 通常のbit演算
 a.set(x) // x桁目を1
 a.reset(x) // x桁目を0
 a[i] // ibit目を参照
+a.count() // 1の個数
 ```
 
 
@@ -215,6 +217,9 @@ v.clear()
 ```
 do {
 } while(next_permutation(a, a + n)); //aを並び替えて辞書順で大きくなるものがないなら抜ける
+do {
+} while(next_permutation(v.begin(), v.end()));
+
 ```
 
 #### 最大公約数
