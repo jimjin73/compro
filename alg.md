@@ -27,6 +27,12 @@
 + 二部マッチング
 + Binary Indexed Tree
 + セグメント木
+### 三分探索
+凸関数の最小値を求めるのに利用可能
+区間を3つにわけ、最小値が入っていない区間1つを除外していく
+3つに分けた際の境界値を見れば判別可能
+[詳細](http://kyopro.hateblo.jp/entry/2019/04/25/134128)
+
 
 ## 計算量の目安
 N=1e6程度ならO(N)が通る。1e7は怪しい。[詳細](https://cppx.hatenablog.com/entry/2017/08/06/104144)
@@ -36,3 +42,4 @@ N=1e6程度ならO(N)が通る。1e7は怪しい。[詳細](https://cppx.hatenab
 + [レッドコーダーが教える、競プロ・AtCoder上達のガイドライン【中級編】](https://qiita.com/e869120/items/eb50fdaece12be418faa)
 + [レッドコーダーが教える、競プロ・AtCoder上達のガイドライン【上級編】](https://qiita.com/e869120/items/acba3dd8649d913102b5)
 + [計算量の話](https://cppx.hatenablog.com/entry/2017/08/06/104144)
++ [三分探索](http://kyopro.hateblo.jp/entry/2019/04/25/134128)
