@@ -210,7 +210,8 @@ v.erase(unique(v.begin(),v.end()), v.end())
 unique関数は**隣り合った**重複要素を詰めて、戻り値として終端ポインタを返す。erase関数で、余分な要素を削除できる。
 #### 空にする
 ```
-v.clear()
+v.clear() //ベクトル
+swap(q, tmp) // 空のオブジェクトを生成してからswapする(queueなどに有効)
 ```
 
 #### 順列列挙
