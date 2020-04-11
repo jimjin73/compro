@@ -264,9 +264,14 @@ struct st{
 + [mint : mod計算の効率化](https://qiita.com/ue_sho/items/1ee5c3e665c72c035880)
 + union find
 
+## 演算子
+ビット演算関連は関係演算子（==, >=など）よりも優先度が遅いため、計算順序に注意
+[詳細](https://ja.cppreference.com/w/cpp/language/operator_precedence)
+
 ## 引用
 + [C++ 日本語リファレンス](https://cpprefjp.github.io/)
 + [Qiita : 競プロ向けSTL標準ライブラリ](https://qiita.com/kawa-Kotaro/items/782bc31b64e4ee13649a)
 + [Qiita : STLの型の使い分け](https://qiita.com/h_hiro_/items/a83a8fd2391d4a3f0e1c)
 + [二分探索を使いこなす](https://pyteyon.hatenablog.com/entry/2019/02/20/194140)
 + [厳選！C++ アルゴリズム実装に使える 25 の STL 機能【前編】](https://qiita.com/e869120/items/518297c6816adb67f9a5#3-23-next_permutation)
+[C++の演算子の優先順位](https://ja.cppreference.com/w/cpp/language/operator_precedence)
