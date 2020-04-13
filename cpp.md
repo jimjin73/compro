@@ -171,6 +171,7 @@ vector内のitemを全列挙
 ```
 for(const auto& e : v) e
 ```
+setでも可能（findで確認するより高速）
 
 #### 最大値、最小値
 ```
