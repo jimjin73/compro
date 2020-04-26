@@ -275,4 +275,5 @@ struct st{
 + [Qiita : STLの型の使い分け](https://qiita.com/h_hiro_/items/a83a8fd2391d4a3f0e1c)
 + [二分探索を使いこなす](https://pyteyon.hatenablog.com/entry/2019/02/20/194140)
 + [厳選！C++ アルゴリズム実装に使える 25 の STL 機能【前編】](https://qiita.com/e869120/items/518297c6816adb67f9a5#3-23-next_permutation)
-[C++の演算子の優先順位](https://ja.cppreference.com/w/cpp/language/operator_precedence)
++ [C++の演算子の優先順位](https://ja.cppreference.com/w/cpp/language/operator_precedence)
++ [競技プログラミングで使えそうなSTLまとめ](http://y-mazun.hatenablog.com/entry/20111202/1322840281)
