@@ -15,7 +15,7 @@ int main(){
     }
     int p = 0;
     for(int i=0;i<M;i++){
-        if((N-i)-(1+i) == N / 2){
+        if((N-i)-(1+i) <= N / 2){
             break;
         }
         cout << 1+i << " " << N-i << endl;
