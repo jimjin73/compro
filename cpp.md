@@ -139,6 +139,7 @@ um.emplace(k,v)
 ```
 unordered_set<type> s        // ハッシュテーブルで管理される(通常のsetは平衡二分探索木)
 unordered_multiset<type> ms  // 要素の重複を許可(要素の個数がわかる)
+set<type> s //大小関係を保持したまま値の出し入れができる
 ```
 操作
 ```
@@ -147,7 +148,11 @@ s.erase(n)  //要素の削除
 s.find(n)   //発見したらその要素へのイテレータを返す
 s.count(n)  //要素の数を返す (multisetの時に使う)
 s.empty()   //空ならtrue
+//以下setのみ
+s.upper_bound(n) //二分探索
+s.lower_bound(n) //二分探索
 ```
+** [注意・要確認] upper_bound(s.begin(),s.end(),n) とすると遅い **
 
 #### bitset
 初期化
