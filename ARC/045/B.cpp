@@ -13,7 +13,7 @@ struct segment_tree{
         while(t > s) s <<= 1;
         return s;
     }
-    segment_tree(vector<T> &v) : num_of_leafs(P2(v.size())), tree(P2(v.size())*2-1, INF){        
+    segment_tree(vector<T> &v) : num_of_leafs(P2(v.size())), tree(num_of_leafs*2-1, INF){        
         for(int i=0;i<v.size();i++) tree[i + num_of_leafs - 1] = v[i];
         update_all();
     }
