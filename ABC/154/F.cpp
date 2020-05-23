@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
 typedef long long ll;
+typedef pair<ll,ll> P;
 
 ll MOD = 1e9+7;
 
@@ -72,21 +72,22 @@ public:
     }
 };
 
+ll a,b,c,d;
+mint fact[2500000];
+
+
+mint comb(ll x, ll y){
+    return fact[x] / fact[y] / fact[x-y];
+}
+
+mint g(ll x, ll y){
+    return comb(x+y+2,y+1) - mint(1);
+}
 
 int main(){
-    mint a(5);
-    mint b(7);
-    mint c(3);
-    cout << "MOD = " << MOD << endl; 
-    cout << "a = " << a << endl;
-    cout << "b = " << b << endl;
-    cout << "c = " << c << endl;
-    cout << "a + b = " << a + b << endl;
-    cout << "a - b = " << a - b << endl;
-    cout << "a * b = " << a * b << endl;
-    cout << "a / c = " << a / c << endl;
-    a += c;
-    cout << "(a += c) = " << a << endl;
-    a /= b;
-    cout << "(a /= b) = " << a << endl;
+    cin >> a >> b >> c >> d;
+    fact[0] = mint(1);
+    for(int i=1;i<2500000;i++) fact[i] = mint(i) * fact[i-1];
+    cout << g(c,d) - g(c,b-1) - g(a-1,d) + g(a-1,b-1) << endl;
+    return 0;
 }
