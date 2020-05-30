@@ -2,44 +2,36 @@
 
 using namespace std;
 typedef long long ll;
-vector<ll> v;
+typedef pair<ll,ll> P;
 
-bool check(ll a, ll b){
-    while(b > a){
-        if(b % a != 0) return false;
-        b /= a;
-    }
-    return true;
-}
+ll N,K,C;
+string s;
+vector<ll> l,r;
 
 int main(){
-    ll N;
-    cin >> N;
-    for(ll i=2;i*i <= N;i++){
-        if(N % i == 0){
-            v.push_back(i);
-            v.push_back(N / i);
+    cin >> N >> K >> C;
+    cin >> s;
+    ll i = 0;
+    while(l.size() < K && i < N){
+        if(s[i] == 'x'){
+            i++;
+            continue;
         }
+        l.push_back(i);
+        i+=C+1;
     }
-    ll c = 0; 
-    for(int i=0;i<v.size();i++){
-        ll q = v[i] - 1;
-        vector<ll> w;
-        for(int j=2;j*j <=q;j++){
-            if(q % j == 0){
-                w.push_back(j);
-                w.push_back(q/j);
-            }
+    i = N-1;
+    while(r.size() < K && i >= 0){
+        if(s[i] == 'x'){
+            i--;
+            continue;
         }
-        ll t = N / q;
-        bool f = false;
-        for(int j=0;j<w.size();j++){
-            if(check(w[j], t)){
-                f = true;
-            }
-        }
-        if(f) c++;
+        r.push_back(i);
+        i-=C+1;
     }
-    cout << c << endl;
+    sort(r.begin(),r.end());
+    for(int i=0;i<K;i++){
+        if(l[i]==r[i]) cout << l[i]+1 << endl;
+    }
     return 0;
 }
