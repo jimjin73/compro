@@ -12,6 +12,9 @@ public:
     mint(ll m = 0){
         n = ((m % MOD) + MOD) % MOD;
     }
+    bool operator==(const mint& m){
+        return n == m.n;
+    }
     mint operator-() const {
         return mint(-n);
     }
