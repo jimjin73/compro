@@ -12,6 +12,9 @@ public:
     mint(ll m = 0){
         n = ((m % MOD) + MOD) % MOD;
     }
+    bool operator==(const mint& m){
+        return n == m.n;
+    }
     mint operator-() const {
         return mint(-n);
     }
@@ -74,39 +77,22 @@ public:
 
 ll N,S;
 ll A[3000];
-vector<pair<ll,ll>> dp[3001][3001];
-unordered_map<ll,mint> um;
-
-ll ind(ll a, ll b, ll c){
-    return ((a*3000)+b)*3000+c;
-}
-
-mint dfs(ll n,ll s,ll c){
-    if(um.find(ind(n,s,c)) != um.end()) return um[ind(n,s,c)];
-    if(s == 0){
-        return um[ind(n,s,c)] = mint(2).pow(N-c);
-    }
-    mint ret(0);
-    for(auto &e : dp[n][s]){
-        ll d = c;
-        if(s != e.second) d++;
-        ret += dfs(e.first,e.second,d);
-    }
-    return um[ind(n,s,c)] = ret;
-}
+mint dp[3050][3050];
 
 int main(){
     cin >> N >> S;
+    mint t = mint(1) / mint(2);
     for(int i=0;i<N;i++) cin >> A[i];
-    dp[0][0].push_back({-1,-1});
+    dp[0][0] = mint(2).pow(N);
     for(int i=0;i<N;i++){
         for(int j=0;j<=S;j++){
-            if(dp[i][j].size()==0) continue;
-            dp[i+1][j].push_back({i,j});
-            if(j+A[i] > S) continue;
-            dp[i+1][j+A[i]].push_back({i,j});
+            if(dp[i][j] == mint(0)) continue;
+            dp[i+1][j] += dp[i][j];
+            if(j+A[i]<=S){
+                dp[i+1][j+A[i]] += dp[i][j] * t;
+            }
         }
     }
-    cout << dfs(N,S,0) << endl;
+    cout << dp[N][S] << endl;
     return 0;
 }
