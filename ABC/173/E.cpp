@@ -51,7 +51,7 @@ public:
         if(t == 0) return mint(1);
         mint m = pow(t>>1);
         m *= m;
-        if(t & 1 == 1) m *= *this;
+        if((t & 1) == 1) m *= *this;
         return m;
     }
     // for prime modulo
@@ -75,76 +75,51 @@ public:
 };
 
 ll N,K;
-vector<ll> P,M;
+ll A[300000];
 
-bool check(ll pn,ll mn){
-    if(pn == 0 && K%2==1) return false;
-    return true;
+bool isPos(){
+    ll c = 0;
+    for(int i=0;i<N;i++){
+        if(A[i] < 0) c++;
+    }
+    if(N > c){
+        if(N==K) return c%2 == 0;
+        return true;
+    }
+    return K%2 == 0;
 }
-
 
 int main(){
     cin >> N >> K;
-    for(int i=0;i<N;i++){
-        ll a;
-        cin >> a;
-        if(a>0) P.push_back(a);
-        if(a<0) M.push_back(a);
-    }
-    ll pn,mn,zn;
-    pn = P.size();
-    mn = M.size();
-    zn = N - pn - mn;
-    if(pn > 0) sort(P.rbegin(),P.rend());
-    if(mn > 0) sort(M.begin(),M.end());
-    if(check(pn,mn)){
-        vector<ll> p,m;
-        for(int i=0;i+1<pn;i+=2){
-            p.push_back(P[i]*P[i+1]);
+    for(int i=0;i<N;i++) cin >> A[i];
+    if(isPos()){
+        vector<ll> P;
+        vector<ll> M;
+        for(int i=0;i<N;i++){
+            if(A[i]>=0) P.push_back(A[i]);
+            else M.push_back(abs(A[i]));
         }
-        for(int i=0;i+1<mn;i+=2){
-            m.push_back(M[i]*M[i+1]);
-        }
+        sort(P.rbegin(),P.rend());
+        sort(M.rbegin(),M.rend());
         mint ans(1);
-        ll k = 0;
-        ll pp,mp;
-        pp = mp = 0;
-        while(k < (K/2)*2){
-            if(pp < p.size() && mp < m.size()){
-                if(p[pp] > m[mp]){
-                    ans *= mint(p[pp]);
-                    pp++;
-                }else{
-                    ans *= mint(m[mp]);
-                    mp++;
-                }
-                k += 2;
-                continue;
-            }
-            if(pp < p.size()){
-                ans *= mint(p[pp]);
-                pp++;
-            }else{
-                ans *= mint(m[mp]);
-                mp++;
-            }
-            k += 2; 
+        int s = 0;
+        if(K % 2 == 1){
+            ans *= mint(P[0]);
+            s++;
         }
-        if(k < K){
-            ans *= P[pp*2];
-        }
-        cout << ans << endl;
-    }else if(zn >= 1){
-        cout << 0 << endl;
-    }else{
         vector<ll> t;
-        for(auto &e : P) t.push_back(e);
-        for(auto &e : M) t.push_back(-1 * e);
-        sort(t.begin(),t.end());
-        mint ans(1);
-        for(int i=0;i<K;i++) ans *= mint(t[i]);
-        ans *= mint(-1);
+        for(int i=0;i+1<M.size();i+=2) t.push_back(M[i]*M[i+1]);
+        for(int i=s;i+1<P.size();i+=2) t.push_back(P[i]*P[i+1]);
+        sort(t.rbegin(),t.rend());
+        for(int i=0;i<(K-s)/2;i++) ans *= t[i];
         cout << ans << endl;
+    }else{
+        vector<ll> v;
+        for(int i=0;i<N;i++) v.push_back(abs(A[i]));
+        sort(v.begin(),v.end());
+        mint ans(1);
+        for(int i=0;i<K;i++) ans *= mint(v[i]);
+        cout << mint(0) - ans << endl;
     }
     return 0;
 }
