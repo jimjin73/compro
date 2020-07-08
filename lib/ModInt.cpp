@@ -52,7 +52,7 @@ public:
         if(t == 0) return mint(1);
         mint m = pow(t>>1);
         m *= m;
-        if(t & 1 == 1) m *= *this;
+        if((t & 1) == 1) m *= *this;
         return m;
     }
     // for prime modulo
