@@ -71,10 +71,11 @@ priority queueを使ってループを回せばOK
 [詳細](http://kyopro.hateblo.jp/entry/2019/04/25/134128)
 
 ## 数学知識
-+ 重複組み合わせ
-+ 完全順列
-+ 攪乱順列
-+ 包除原理
++ 数え上げ[(写像12相)](https://qiita.com/drken/items/f2ea4b58b0d21621bd5)
+    + 重複組み合わせ
+    + 完全順列
+    + 攪乱順列
+    + 包除原理
 
 ## 計算量の目安
 N=1e6程度ならO(N)が通る。1e7は怪しい。[詳細](https://cppx.hatenablog.com/entry/2017/08/06/104144)
